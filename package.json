@@ -1,0 +1,28 @@
+{
+  "name": "grid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"npm run start:min | npm run start:com", 
+    "start:min": "babel ag-grid -w --minified --no-comments --compact -d min",
+    "start:com": "babel ag-grid -w --no-comments  -d js",
+    "bh": "babel --help"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhananjay431/grid.git"
+  },
+  "author": "dhananjay belhekar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhananjay431/grid/issues"
+  },
+  "homepage": "https://github.com/dhananjay431/grid#readme"
+}
