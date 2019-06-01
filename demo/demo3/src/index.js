@@ -5,7 +5,16 @@ import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import Hello from './Hello';
-
+import Verbs from './Verbs';
+import Words from './Words';
+const mt={
+  'margin-top':'56px'
+}
+const pos ={
+  "position":'sticky',
+  top:0,
+  "z-index":2041
+}
 class App extends Component {
   constructor() {
     super();
@@ -29,10 +38,10 @@ class App extends Component {
             <Link to="/" className="nav-link">Home</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Features</a>
+            <Link to="/verbs" className="nav-link">Verbs</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Pricing</a>
+            <Link to="/Words" className="nav-link">Words</Link>
           </li>
           {/* <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,7 +56,12 @@ class App extends Component {
         </ul>
       </div>
     </nav>
+    <div style={mt} className="d-inline">
     <Route path="/" exact component={Hello} />
+    <Route path="/verbs" exact component={Verbs} />
+    <Route path="/words" exact component={Words} />
+    </div>
+    
     </Router>
     
     );
