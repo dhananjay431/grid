@@ -1,51 +1,65 @@
-class CellRender {
-  init(params) {
+"use strict";
+
+var CellRender = function () {
+  function CellRender() {}
+
+  var _proto = CellRender.prototype;
+
+  _proto.init = function init(params) {
     this.eGui = document.createElement('span');
-    let getData = params.params2.filter(d => {
+    var getData = params.params2.filter(function (d) {
       return d.key == params.value;
     });
     if (getData.length > 0) this.eGui.innerHTML = getData[0].value;else this.eGui.innerHTML = "-";
-  }
+  };
 
-  getGui() {
+  _proto.getGui = function getGui() {
     return this.eGui;
-  }
+  };
 
-}
+  return CellRender;
+}();
 
-class CellText {
-  init() {
+var CellText = function () {
+  function CellText() {}
+
+  var _proto2 = CellText.prototype;
+
+  _proto2.init = function init() {
     this.html = document.createElement('input');
     this.html.value = params.value;
-  }
+  };
 
-  getGui() {
+  _proto2.getGui = function getGui() {
     return this.html;
-  }
+  };
 
-  afterGuiAttached() {
+  _proto2.afterGuiAttached = function afterGuiAttached() {
     this.html.focus();
     this.html.select();
-  }
+  };
 
-  getValue() {
+  _proto2.getValue = function getValue() {
     return this.html.value;
-  }
+  };
 
-  destroy() {}
+  _proto2.destroy = function destroy() {};
 
-  isPopup() {
+  _proto2.isPopup = function isPopup() {
     return false;
-  }
+  };
 
-}
+  return CellText;
+}();
 
-class CellSelect {
-  constructor() {
+var CellSelect = function () {
+  function CellSelect() {
     this.selected();
   }
 
-  init(params) {
+  var _proto3 = CellSelect.prototype;
+
+  _proto3.init = function init(params) {
     this.div = document.createElement('div');
     this.div.style.width = '100%';
     this.div.style.height = '100%';
@@ -54,14 +68,14 @@ class CellSelect {
     this.gui.style.height = '100%';
 
     for (var i = 0; i < params.values.length; i++) {
-      let op = document.createElement('option');
+      var op = document.createElement('option');
       op.text = params.values[i].text;
       op.value = params.values[i].value;
       this.gui.add(op);
     }
 
     this.div.appendChild(this.gui);
-    let that = this;
+    var that = this;
     this.gui.addEventListener('change', function (event) {
       params.value = params.values[event.target.selectedIndex].value;
 
@@ -69,45 +83,51 @@ class CellSelect {
         that.selected(params.value);
       }
     });
-  }
+  };
 
-  selected(value) {
+  _proto3.selected = function selected(value) {
     this.seledtedValue = value;
-  }
+  };
 
-  getGui() {
+  _proto3.getGui = function getGui() {
     return this.div;
-  }
+  };
 
-  getValue() {
+  _proto3.getValue = function getValue() {
     return this.seledtedValue;
-  }
+  };
 
-  afterGuiAttached() {
+  _proto3.afterGuiAttached = function afterGuiAttached() {
     this.div.focus();
-  }
+  };
 
-}
+  return CellSelect;
+}();
 
-class CellSelectCb {
-  init(cb) {
+var CellSelectCb = function () {
+  function CellSelectCb() {}
+
+  var _proto4 = CellSelectCb.prototype;
+
+  _proto4.init = function init(cb) {
     cb();
-  }
+  };
 
-  selected(value) {
+  _proto4.selected = function selected(value) {
     this.seledtedValue = value;
-  }
+  };
 
-  getGui() {
+  _proto4.getGui = function getGui() {
     return this.div;
-  }
+  };
 
-  getValue() {
+  _proto4.getValue = function getValue() {
     return this.gui.options[e.selectedIndex].value;
-  }
+  };
 
-  afterGuiAttached() {
+  _proto4.afterGuiAttached = function afterGuiAttached() {
     this.gui.focus();
-  }
+  };
 
-}
+  return CellSelectCb;
+}();
